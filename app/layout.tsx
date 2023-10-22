@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import TopBar from "@/components/appBar/top-bar";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -15,17 +16,20 @@ export default function RootLayout({
       <head />
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased flex flex-col items-center justify-between",
           font.className
         )}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+          <div className="max-w-5xl w-full p-5 font-mono">
+          <TopBar />
           {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

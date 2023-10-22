@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Job {
+  id String @id @default(uuid())
+  jobId String @unique
+  title String
+  description String
+  category String
+  skills String
+  isOpen Boolean @default(true)
+
+  applications Application[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Application {
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  phone String @unique
+  resumeUrl String
+  linkedinUrl String?
+  githubUrl String?
+  selected Boolean @default(false)
+
+  job Job @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  jobId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
