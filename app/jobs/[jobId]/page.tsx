@@ -56,8 +56,8 @@ const JobIdPage = async ({ params }: JobIdPageProps) => {
             <b>Apply</b>
           </Button>
         </DialogTrigger>
-        <DialogContent>
-          <JobApplication jobId={job.jobId}/>
+        <DialogContent className="max-w-2xl">
+          <JobApplication jobId={job.jobId} jobTitle={job.title}/>
         </DialogContent>
       </Dialog>
     </div>

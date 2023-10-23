@@ -3,6 +3,7 @@ import "./globals.css";
 import { Open_Sans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import TopBar from "@/components/appBar/top-bar";
+import { Toaster } from "@/components/ui/toaster";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
           <div className="max-w-5xl w-full p-5 font-mono">
           <TopBar />
           {children}
+          <Toaster />
           </div>
         </ThemeProvider>
       </body>

@@ -25,14 +25,14 @@ model Job {
 model Application {
   id String @id @default(uuid())
   name String
-  email String @unique
-  phone String @unique
+  email String
+  phone String
   resumeUrl String
   linkedinUrl String?
   githubUrl String?
   selected Boolean @default(false)
 
-  job Job @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  job Job @relation(fields: [jobId], references: [jobId], onDelete: Cascade)
   jobId String
 
   createdAt DateTime @default(now())
