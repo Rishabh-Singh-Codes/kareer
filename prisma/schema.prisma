@@ -3,15 +3,16 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model Job {
   id String @id @default(uuid())
   jobId String @unique
   title String
-  description String
+  description String @db.Text
   category String
   skills String
   isOpen Boolean @default(true)

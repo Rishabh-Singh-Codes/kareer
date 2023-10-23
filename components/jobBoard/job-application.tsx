@@ -74,12 +74,11 @@ const JobApplication = ({
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       values.jobId = jobId;
-      console.log("values: ", values);
+
       const {
         data: { message, status, application },
       } = await axios.post("/api/applications", values);
 
-      console.log("message", message);
 
       form.reset();
       toast({

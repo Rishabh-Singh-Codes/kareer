@@ -5,8 +5,6 @@ export async function POST(req: Request) {
   try {
     const {name, email, phone, resumeUrl, linkedinUrl, githubUrl, jobId} = await req.json();
 
-    console.log("data in api: ", name, email, phone, resumeUrl, linkedinUrl, githubUrl, jobId);
-
     const alreadyApplied = await db.application.findFirst({
         where:{
             email,
