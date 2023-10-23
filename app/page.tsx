@@ -10,7 +10,6 @@ export default function Home() {
           Check out the jobs listed below and apply for the ones which match
           your skills.
         </div>
-        {/* @ts-expect-error Server Component */}
         <JobBoard />
       </div>
     </main>
